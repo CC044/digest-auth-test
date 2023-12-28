@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ExampleApp</title>
+    <link href="css/normalize.min.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="css/cutegrids.min.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link rel="alternate icon" type="image/svg" href="img/home.svg">
+    <link rel="manifest" href="manifest.json">
+   <meta name="robots" content="nofollow">
+    <meta name="description" content="Beschreibung der Seite">
+  </head>
+  <body>
+    <style>
+      img {
+        height: 5vw;
+        min-height: 30px;
+        max-height: 80px;
+        width: auto
+      }
+    </style>
+    <nav>
+      <ul>
+        <li><a href="#index" rel="noreferrer noopener" >Start</a></li>
+        <li><a href="#seite2" rel="noreferrer noopener" >Seite 2</a></li>
+      </ul>
+    </nav>
+    <main>
+      <img src="img/home.svg" alt="Placeholder" loading="lazy" />
+    </main>
+    <script defer >
+      /*// Offline Functionality
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js');
+        });
+      }*/
+
+      /*
+      const test = document.getElementById('test');
+      async function testFunc() {
+        console.log('Funktion wurde aufgerufen');
+      };
+      */
+    </script>
+  </body>
+</html>
+
