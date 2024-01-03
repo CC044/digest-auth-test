@@ -6,19 +6,15 @@ import express from 'express';
 import mongodb from 'mongodb';
 import mongoose from 'mongoose';
 
-// const mongodb_pw = process.env.MONGODB_PW;
-
 const MongoClient = mongodb.MongoClient;
 
 const username = encodeURIComponent("user");
 const password = encodeURIComponent(process.env.MONGODB_PW);
-console.log("PASSWORD IS: ", password);
 const clusterName = "urltracker.3vcne2x";
 const databaseName = "urlTracker";
 const collectionName = "urlAccess";
 
-const uri = `mongodb+srv://${username}:${process.env.MONGODB_PW}@${clusterName}.mongodb.net/?retryWrites=true&w=majority`;
-console.log("URI IS: ", uri);
+const uri = `mongodb+srv://${username}:${password}@${clusterName}.mongodb.net/?retryWrites=true&w=majority`;
 
 const client = new MongoClient(uri);
 try {
