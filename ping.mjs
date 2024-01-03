@@ -48,7 +48,7 @@ async function initializeDatabase (uri) {
 */
 const app = express();
 const port = parseInt(process.argv[2]) ? parseInt(process.argv[2]) : 8080;
-const staticPath = path.join('client', 'dist');
+const staticPath = path.join('__dirname', 'client', 'dist');
 
 app.use(express.static(staticPath));
 // app.use(server);
