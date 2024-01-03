@@ -3,8 +3,8 @@
 
 import path from 'path';
 import express from 'express';
-import express from 'mongodb';
-import express from 'mongoose';
+import mongodb from 'mongodb';
+import mongoose from 'mongoose';
 
 const mongodb_pw = process.env.MONGODB_PW;
 
