@@ -16,6 +16,11 @@ const collectionName = "urlAccess";
 
 const uri = `mongodb+srv://${username}:${password}@${clusterName}.mongodb.net/?retryWrites=true&w=majority`;
 
+if (process.env.DEBUG === true) {
+  console.log(`PW IS ${password}`);
+  console.log(`URI IS ${uri}`);
+}
+
 const client = new MongoClient(uri);
 try {
   client.connect(err => {
@@ -43,7 +48,7 @@ async function initializeDatabase (uri) {
 */
 const app = express();
 const port = parseInt(process.argv[2]) ? parseInt(process.argv[2]) : 8080;
-const staticPath = path.join(path.dirname(process.argv[1]), path.join('render', 'project', 'client', 'dist')); // Pfad aendern falls /index.mjs zu /server/expressBasis.js wird -> '../client/dist/'
+const staticPath = path.join('client', 'dist');
 
 app.use(express.static(staticPath));
 // app.use(server);
