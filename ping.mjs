@@ -16,8 +16,8 @@ const clusterName = "urltracker.3vcne2x";
 const databaseName = "urlTracker";
 const collectionName = "urlAccess";
 
-const uri = `mongodb+srv://${username}:${process.env.MONGODB_PW}@${clusterName}.mongodb.net/?retryWrites=true&w=majority`;
-console.log(`URI IS: ${uri}`)
+const uri = `mongodb+srv://${username}:${mongodb_pw}@${clusterName}.mongodb.net/?retryWrites=true&w=majority`;
+
 const client = new MongoClient(uri);
 try {
   client.connect(err => {
