@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ExampleApp</title>
     <link href="css/normalize.min.css" rel="stylesheet" type="text/css" media="screen"/>
-    <link href="css/cutegrids.min.css" rel="stylesheet" type="text/css" media="screen"/>
+    <!--<link href="css/cutegrids.min.css" rel="stylesheet" type="text/css" media="screen"/>-->
     <link href="css/style.css" rel="stylesheet" type="text/css" media="screen"/>
-    <link rel="alternate icon" type="image/svg" href="img/home.svg">
+    <link rel="alternate icon" type="image/svg" href="img/favicon.svg">
     <link rel="manifest" href="manifest.json">
    <meta name="robots" content="nofollow">
     <meta name="description" content="Beschreibung der Seite">
@@ -45,12 +45,10 @@
       </ul>
     </nav>
     <main>
-      <p>Lorem Ipsum</p>
-      <ul>
-        <li><a href="/showall" rel="noreferrer noopener">Alles zeigen</a></li>
-        <li><a href="/shorthtml" rel="noreferrer noopener">Verkürzen</a></li>
-        <li><a href="/s/def123" rel="noreferrer noopener">Bestimmter Eintrag</a></li>
-      </ul>
+      <form action="/shorten" method="post">
+        <input type="text" id="longUrl" name="longUrl" required placeholder="https://..." title="URL die gekürzt werden soll" />
+        <button type="button" id="submit" class="btn" name="submit" title="URL kürzen">URL verkürzen</button>        
+      </form>
     </main>
     <footer>
       <!--<p><a href="impressum">Impressum</a></p>-->
@@ -104,6 +102,61 @@
         }
       }
 
+    </script>
+    <script defer>
+      'use strict';
+      const longUrl = document.getElementById('longUrl');
+      const btn = document.getElementById('submit');
+      btn.addEventListener('click', shortenUrl)
+
+      /* const apiUrl = 'https://csl-zw9x.onrender.com/shorten'; */
+      const apiUrl = '/shorten';
+
+  	  const reqBody = `longUrl: ${longUrl}`;
+      
+      const postReq = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(reqBody)
+      };
+
+      async function shortenUrl(apiUrl, postReqx) {
+        const postReq = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ longUrl: longUrl.value })
+        };
+        console.log(`fetching now...`);
+        console.log(longUrl.value)
+        fetch('/shorten', postReq)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Fehler: ${response.statusText}`);
+          }
+          return response.json();
+        })
+        .then(response => {
+          // Erfolgreiche Antwort vom Server
+          alert('Success!')
+          console.log(response);
+        })
+        /*.then((response) => {
+          if (response.ok) {
+            // Erfolgreiche Antwort (z.B., Statuscode 200)
+            const responseData = await response.json();
+            res.status(200).json(responseData);
+          } else {
+            // Fehlerhafte Antwort (z.B., Statuscode 4xx oder 5xx)
+            const errorData = await response.json();
+            res.status(response.status).json({ error: errorData });
+          }
+        })*/
+        .catch(err => console.error(err));
+      }
     </script>
     <!--<script defer >
       /*// Offline Functionality

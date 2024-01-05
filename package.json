@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "#Allgemeine_Befehle": "echo comment ; exit",
-    "start": "node index.mjs",
+    "start": "node ping.mjs",
     "gen:dist": "mkdir -p ./client/dist/ && cp ./client/src/index.html ./client/dist/index.html && npm run gen:html",
     "gen:html": "cp -r ./client/src/html/ ./client/dist/html/",
     "clean": "npm run clean:dist && npm run clean:node",

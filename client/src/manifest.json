@@ -1,17 +1,16 @@
 {
-  "name": "Startseite",
-  "short_name": "Start",
+  "name": "URL-Shortener",
+  "short_name": "S-URL",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#032605",
   "theme_color": "#032605",
   "icons": [
     {
-      "src": "img/home.svg",
+      "src": "img/favicon.svg",
       "sizes": "192x192",
       "type": "image/svg",
       "purpose": "any"
     }
   ]
 }
-
