@@ -133,6 +133,8 @@ const time = new Date();
 console.dir(time);
 
 // Testdaten in die Datenbank einfügen
+// test
+console.log('test');
 /*UrlLibrary.create([
   { short_url: 'asd', long_url: 'company', timestamp: '2024-01-05T08:07:16.265Z' }
 ]);*/
